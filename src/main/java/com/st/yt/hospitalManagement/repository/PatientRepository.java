@@ -13,5 +13,5 @@ public interface PatientRepository extends JpaRepository<Patient, Long> {
 
     List<Patient> findByBirthDateOrEmail(LocalDate birthDate,String email);
 
-
+    List<Patient>  findByNameContaining(String name);
 }

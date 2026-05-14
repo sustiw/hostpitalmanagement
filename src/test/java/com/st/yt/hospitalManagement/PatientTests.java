@@ -38,9 +38,15 @@ public class PatientTests {
         // Patient patient= patientRepository.findByName("John Doe");
         //System.out.println("pateint with name ---"+patient);
 
-        List<Patient> patentList = patientRepository.findByBirthDateOrEmail(LocalDate.of(1985, 05, 15), "jane.smith@email.com");
+//        List<Patient> patentList = patientRepository.findByBirthDateOrEmail(LocalDate.of(1985, 05, 15), "jane.smith@email.com");
+//        System.out.println("pateint with dob or email ---" + patentList);
+//
+//        patentList.stream().forEach(patient -> System.out.println(patient.getName()));
+
+
+             List<Patient> patentList = patientRepository.findByNameContaining("Jo");
         System.out.println("pateint with dob or email ---" + patentList);
 
-        patentList.stream().forEach(patient -> System.out.println(patient.getName()));
+       patentList.stream().forEach(patient -> System.out.println(patient.getName()));
     }
 }
