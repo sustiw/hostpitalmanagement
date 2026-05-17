@@ -15,7 +15,7 @@ public class PatientService {
     @Autowired
     PatientRepository patientRepository;
 
-    @Transactional
+
     public Patient getPatientById(Long id) {
 
         Patient patient1 = patientRepository.findById(id).orElseThrow();

@@ -1,9 +1,11 @@
 package com.st.yt.hospitalManagement;
 
 
+import com.st.yt.hospitalManagement.dto.BloodGroupCountResponseEntity;
 import com.st.yt.hospitalManagement.entity.Patient;
 import com.st.yt.hospitalManagement.repository.PatientRepository;
 import com.st.yt.hospitalManagement.service.PatientService;
+import com.st.yt.hospitalManagement.type.BloodGroupType;
 import org.junit.jupiter.api.Test;
 import org.junit.platform.commons.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,9 +46,35 @@ public class PatientTests {
 //        patentList.stream().forEach(patient -> System.out.println(patient.getName()));
 
 
-             List<Patient> patentList = patientRepository.findByNameContaining("Jo");
-        System.out.println("pateint with dob or email ---" + patentList);
+        //    List<Patient> patentList = patientRepository.findByNameContaining("Jo");
 
-       patentList.stream().forEach(patient -> System.out.println(patient.getName()));
+        // System.out.println("pateint with dob or email ---" + patentList);
+
+
+        //   List<Patient> patentList = patientRepository.findByBloodGroup(BloodGroupType.A_POSITIVE);
+        //  System.out.println("pateint with bloodgroup ---" + patentList);
+        // patentList.stream().forEach(patient -> System.out.println(patient.getName()));
+
+
+//        List<Patient> patentList = patientRepository.findByBornAfterDate(LocalDate.of(1999,1,01));
+//        System.out.println("pateint  after birthdate ---" + patentList);
+//        patentList.stream().forEach(patient -> System.out.println(patient.getName()));
+//
+//        List<Object[]> groupList = patientRepository.countEachBloodGroupType();
+//        System.out.println("pateint  group by blood group ---" + groupList);
+//
+//        groupList.forEach(object -> System.out.println(object[0] + "--" + object[1]));
+
+        List<BloodGroupCountResponseEntity> groupList = patientRepository.countEachBloodGroupType();
+        System.out.println("pateint  group by blood group ---" + groupList);
+        groupList.forEach(bloodGroupCountResponseEntity -> System.out.println(bloodGroupCountResponseEntity.getBloodGroup() + " " + bloodGroupCountResponseEntity.getCount()));
+
+
+//        List<Patient> allPatientList= patientRepository.findAllPatient();
+//        allPatientList.stream().forEach(patient -> System.out.println(patient));
+
+
+//       int rowUpdate= patientRepository.updatePatentNameWithId("Sushil Tiwari",1L);
+//        System.out.println("updated rows: "+rowUpdate);
     }
 }
