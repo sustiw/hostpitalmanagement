@@ -10,6 +10,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.platform.commons.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -65,9 +68,9 @@ public class PatientTests {
 //
 //        groupList.forEach(object -> System.out.println(object[0] + "--" + object[1]));
 
-        List<BloodGroupCountResponseEntity> groupList = patientRepository.countEachBloodGroupType();
-        System.out.println("pateint  group by blood group ---" + groupList);
-        groupList.forEach(bloodGroupCountResponseEntity -> System.out.println(bloodGroupCountResponseEntity.getBloodGroup() + " " + bloodGroupCountResponseEntity.getCount()));
+//        List<BloodGroupCountResponseEntity> groupList = patientRepository.countEachBloodGroupType();
+//        System.out.println("pateint  group by blood group ---" + groupList);
+//        groupList.forEach(bloodGroupCountResponseEntity -> System.out.println(bloodGroupCountResponseEntity.getBloodGroup() + " " + bloodGroupCountResponseEntity.getCount()));
 
 
 //        List<Patient> allPatientList= patientRepository.findAllPatient();
@@ -76,5 +79,9 @@ public class PatientTests {
 
 //       int rowUpdate= patientRepository.updatePatentNameWithId("Sushil Tiwari",1L);
 //        System.out.println("updated rows: "+rowUpdate);
+
+
+        Page<Patient> allPatientList= patientRepository.findAllPatient(PageRequest.of(0,2, Sort.by("name")));
+        allPatientList.stream().forEach(patient -> System.out.println(patient));
     }
 }
