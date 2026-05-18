@@ -2,7 +2,6 @@ package com.st.yt.hospitalManagement.entity;
 
 import com.st.yt.hospitalManagement.type.BloodGroupType;
 import jakarta.persistence.*;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -10,6 +9,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @ToString
@@ -50,5 +50,12 @@ public class Patient {
     @Column(name = "blood_group")
     @Enumerated(EnumType.STRING)
     private BloodGroupType bloodGroup;
+
+    @OneToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "patient_insurance_id")
+    private Insurance insurance;
+
+    @OneToMany(mappedBy = "patient")
+    private List<Appointment> appointments;
 
 }
