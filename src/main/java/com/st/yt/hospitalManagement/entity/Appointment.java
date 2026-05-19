@@ -1,10 +1,7 @@
 package com.st.yt.hospitalManagement.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
@@ -26,6 +23,7 @@ public class Appointment {
     private String reason;
 
     @ManyToOne
+    @ToString.Exclude
     @JoinColumn(name = "patient_id", nullable = false)
     private Patient patient;
 
