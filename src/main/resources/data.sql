@@ -12,3 +12,13 @@ VALUES ('Sam Wilson', '2000-01-01', 'sam.w@email.com', 'Male', CURRENT_TIMESTAMP
 
 INSERT INTO patient (name, birth_date, email, gender, create_at,blood_group)
 VALUES ('Emily Brown', '1995-03-11', 'emily.b@email.com', 'Female', CURRENT_TIMESTAMP,'AB_POSITIVE');
+
+
+INSERT INTO doctor (name, specialization, email)
+VALUES ('Dr. Alice Smith', 'Pediatrics', 'alice.smith@hospital.com');
+
+INSERT INTO doctor (name, specialization, email)
+VALUES ('Dr. Robert Chen', 'Neurology', 'robert.chen@clinic.org');
+
+INSERT INTO doctor (name, specialization, email)
+VALUES ('Dr. Sarah Jenkins', 'Dermatology', 'sarah.jenkins@medical.net');
